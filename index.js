@@ -7,7 +7,7 @@ require('dotenv').config(); // Load environment variables from a .env file
 // Function to display ASCII art
 function displayAsciiArt() {
   return new Promise((resolve, reject) => {
-    figlet('Employee Payroll Tracker', function(err, data) {
+    figlet('Employee Tracker', function(err, data) {
       if (err) {
         reject(err);
       } else {
