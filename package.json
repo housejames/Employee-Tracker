@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "cli-ux": "^6.0.9",
+    "dotenv": "^16.4.5",
     "figlet": "^1.7.0",
-    "inquirer": "^8.2.4"
+    "inquirer": "^8.2.4",
+    "pg": "^8.11.3"
   }
 }

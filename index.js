@@ -4,21 +4,24 @@ const figlet = require('figlet');
 
 require('dotenv').config(); // Load environment variables from a .env file
 
-// Display terminal art
-figlet('Employee Payroll Tracker', function(err, data) {
-  if (err) {
-    console.log('Something went wrong...');
-    console.dir(err);
-    return;
-  }
-  console.log(data);
-});
+// Function to display ASCII art
+function displayAsciiArt() {
+  return new Promise((resolve, reject) => {
+    figlet('Employee Payroll Tracker', function(err, data) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(data);
+      }
+    });
+  });
+}
 
 // Database connection setup
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'your_database',
+  database: 'Employee_Tracker_db',
   password: process.env.DB_PASSWORD, // Access DB_PASSWORD from environment variable
   port: 5432,
 });
@@ -50,6 +53,10 @@ async function addDepartment(name) {
 // Command-line interface logic
 async function main() {
   try {
+    // Display ASCII art
+    const asciiArt = await displayAsciiArt();
+    console.log(asciiArt);
+
     // Display main menu
     const { choice } = await inquirer.prompt({
       type: 'list',
