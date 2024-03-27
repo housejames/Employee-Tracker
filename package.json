@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "cli-ux": "^6.0.9",
+    "figlet": "^1.7.0",
+    "inquirer": "^8.2.4"
+  }
+}
